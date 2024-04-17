@@ -11,10 +11,14 @@ export function searchImages(stringSearch, myGallery) {
     per_page: 9,
   });
 
-  return fetch(`${url}?${params}`).then(response => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return response.json();
-  });
+  return fetch(`${url}?${params}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    })
+    .catch(error => {
+      throw new Error('Failed to fetch images');
+    });
 }
