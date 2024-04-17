@@ -23,10 +23,8 @@ form.addEventListener('submit', handleSearch);
 function handleSearch(event) {
   event.preventDefault();
   gallery.innerHTML = '';
-  /* loader.style.borderColor = 'black';
-  loader.style.borderBottomColor = 'transparent'; */
+  loader.style.display = 'inline-block';
   const searchWord = event.currentTarget.elements.inputElement.value;
-  console.log(searchWord);
   searchImages(searchWord, loader, gallery)
     .then(data => {
       if (data.total == 0) {
@@ -37,9 +35,10 @@ function handleSearch(event) {
             'Sorry, there are no images matching your search query. Please try again!',
           messageColor: 'white',
           color: 'red',
-          position: 'topCenter',
+          position: 'topRight',
           timeout: '5000',
-        });
+        })
+        event.target.reset();
         return 0;
       } else {
         gallery.insertAdjacentHTML('beforeend', renderGallery(data));
@@ -48,7 +47,6 @@ function handleSearch(event) {
       }
     })
     .catch(error => {
-      // if (error.length != undefined) {
       iziToast.show({
         title: 'Ops.',
         titleColor: 'white',
@@ -58,11 +56,11 @@ function handleSearch(event) {
         position: 'topCenter',
         timeout: '5000',
       });
-      // }
+      
     })
     .finally(() => {
-      loader.style.borderColor = 'white';
-      loader.style.borderBottomColor = 'transparent';
+      
+      loader.style.display = 'none';
     });
 }
 
