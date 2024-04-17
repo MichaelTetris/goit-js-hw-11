@@ -5,3 +5,85 @@
   |============================
 */
 @import url('./reset.css');
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+
+  color: #242424;
+  background-color: rgba(255, 255, 255, 0.87);
+}
+
+.form-box{
+  margin: 10px 20px;
+}
+
+.search-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+input {
+  width: 272px;
+  height: 40px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+button {
+  width: 91px;
+  height: 40px;
+  border-radius: 8px;
+  border: 0;
+  padding: 8px 16px;
+  background: #4e75ff;
+  font-weight: 500;
+  color: #fff;
+
+  cursor: pointer;
+}
+
+button:hover {
+  background: #6c8cff;
+}
+
+/* .loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid black;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+} */
+
+/* @keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} */
+
+.list_gallery{
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
